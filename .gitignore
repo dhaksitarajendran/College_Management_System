@@ -1,0 +1,24 @@
+# VS Code settings folder
+.vscode/
+
+# Compiled class files (output)
+bin/
+out/
+target/
+
+# IntelliJ / Eclipse specific files (if ever used)
+.project
+.classpath
+.settings/
+
+# Logs
+*.log
+
+# OS-generated files
+.DS_Store
+Thumbs.db
+
+# Java build artifacts
+*.jar
+*.war
+*.ear
