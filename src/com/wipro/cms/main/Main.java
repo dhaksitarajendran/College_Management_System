@@ -26,8 +26,6 @@ public class Main {
             System.out.println("Enrollment ID: " + en.getEnrollmentId());
             System.out.println("Course ID     : " + en.getCourseId());
             System.out.println("Fee Amount    : Rs." + en.getFeeAmount());
-            System.out.println("\n--- Student Enrollment Summary ---");
-            service.printStudentEnrollments("S001");
         } catch (InvalidStudentException ise) {
             System.out.println(ise.toString());
         } catch (CourseFullException cfe) {
@@ -36,6 +34,8 @@ public class Main {
             System.out.println(ee.toString());
         } catch (Exception ex) {
             System.out.println("Unexpected Error: " + ex.toString());
+        } finally {
+            System.out.println("work accomplished");
         }
     }
 }

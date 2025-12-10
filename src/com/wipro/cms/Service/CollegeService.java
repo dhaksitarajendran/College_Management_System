@@ -9,9 +9,9 @@ import com.wipro.cms.util.InvalidStudentException;
 import java.util.ArrayList;
 
 public class CollegeService {
-    private ArrayList<Student> students;
-    private ArrayList<Course> courses;
-    private ArrayList<Enrollment> enrollments;
+    private final ArrayList<Student> students;
+    private final ArrayList<Course> courses;
+    private final ArrayList<Enrollment> enrollments;
 
 
     public CollegeService(ArrayList<Student> students, ArrayList<Course> courses, ArrayList<Enrollment> enrollments) {
@@ -67,9 +67,24 @@ public class CollegeService {
 
     public Enrollment enrollStudent(String studentId, String courseId, String semester)
             throws Exception {
-
-
+        if(!validateStudent(studentId)){
+            throw new InvalidStudentException();  }  
+        if(!validateCourse(courseId)){
+            throw new EnrollmentException(); }   
+        if(!checkCourseCapacity(courseId)){
+            throw new CourseFullException(); 
             }
+        else{
+            String enrollmentId = "ENR001";
+            Enrollment newEnrollment = new Enrollment(enrollmentId, studentId, courseId, semester, 0);
+            enrollments.add(newEnrollment);
+            for(Course c:courses){
+                if(c.getCourseId().equals(courseId)){
+                    c.setEnrolledCount(c.getEnrolledCount()+1);
+                }
+            }
+            return newEnrollment;
+        }
 
     }
 
@@ -82,26 +97,10 @@ public class CollegeService {
                 enrollments.remove(e);
                 return true;
             }
-        }return false;
-    }
-
-    public double calculateFee(String courseId, int credits) {
-  return credits * 1000;
-
-                // Enrollment logic to be implemented
-                return null;
-    }
-
-    public boolean dropEnrollment(String enrollmentId) throws EnrollmentException {
-        // Drop enrollment logic to be implemented
+        }
         return false;
     }
 
-    public double calculateFee(String courseId) {
-        //  Fee calculation logic to be implemented
- return 0.0;
-
-    }
     public void printStudentEnrollments(String studentId){
         if(studentId==null || studentId.isEmpty()){
             System.out.println("Invalid Student ID");
@@ -112,6 +111,7 @@ public class CollegeService {
                 System.out.println(e);
             }
         }
+    }
 
     }
-}
+
