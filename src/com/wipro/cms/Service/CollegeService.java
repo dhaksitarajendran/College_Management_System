@@ -6,11 +6,9 @@ import com.wipro.cms.util.EnrollmentException;
 import com.wipro.cms.util.InvalidStudentException;
 
 public class CollegeService {
-    public
-CollegeService(ArrayList<Student>,
-ArrayList<Course>,
-ArrayList<Enrollment>) {
-        
+
+    public CollegeService(ArrayList<Student>,ArrayList<Course>,ArrayList<Enrollment>) {
+     
     }
 
     public boolean validateStudent(String studentId) throws InvalidStudentException {
@@ -21,8 +19,7 @@ ArrayList<Enrollment>) {
 
     }
 
-    public boolean checkCourseCapacity(String courseId)
-            throws CourseFullException {
+    public boolean checkCourseCapacity(String courseId) throws CourseFullException {
 
     }
 

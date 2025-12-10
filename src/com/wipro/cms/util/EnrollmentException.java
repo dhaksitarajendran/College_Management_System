@@ -4,7 +4,7 @@ public class EnrollmentException {
 
     @Override
     public String toString() {
-       
+       return "EnrollmentException Occurred: Error during enrollment process.";
     }
     
 }
