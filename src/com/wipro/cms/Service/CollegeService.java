@@ -60,16 +60,25 @@ public class CollegeService {
     public Enrollment enrollStudent(String studentId, String courseId, String semester)
             throws Exception {
 
+            }
+
     }
 
     public boolean dropEnrollment(String enrollmentId) throws EnrollmentException {
-
+        if(enrollmentId==null || enrollmentId.isEmpty()){
+         System.out.println("Invalid Enrollment ID");
+        }
+        for(Enrollment e: enrollments){
+            if(e.getEnrollmentId().equals(enrollmentId)){
+                enrollments.remove(e);
+                return true;
+            }
+        }return false;
     }
 
-    public double calculateFee(String courseId) {
-
+    public double calculateFee(String courseId, int credits) {
+  return credits * 1000;
     }
-
     public void printStudentEnrollments(String studentId){
         if(studentId==null || studentId.isEmpty()){
             System.out.println("Invalid Student ID");
