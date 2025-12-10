@@ -19,7 +19,15 @@ public class CollegeService {
         this.courses = courses;
         this.enrollments = enrollments;
     }
-
+    public void addStudent(Student student){
+        students.add(student);
+    }
+    public void addCourse(Course course){
+        courses.add(course);
+    }
+    public void addEnrollment(Enrollment enrollment){
+        enrollments.add(enrollment);
+    }
     public boolean validateStudent(String studentId) throws InvalidStudentException {
         if(studentId==null || studentId.isEmpty()){
             throw new InvalidStudentException();
@@ -60,6 +68,7 @@ public class CollegeService {
     public Enrollment enrollStudent(String studentId, String courseId, String semester)
             throws Exception {
 
+
             }
 
     }
@@ -78,6 +87,20 @@ public class CollegeService {
 
     public double calculateFee(String courseId, int credits) {
   return credits * 1000;
+
+                // Enrollment logic to be implemented
+                return null;
+    }
+
+    public boolean dropEnrollment(String enrollmentId) throws EnrollmentException {
+        // Drop enrollment logic to be implemented
+        return false;
+    }
+
+    public double calculateFee(String courseId) {
+        //  Fee calculation logic to be implemented
+ return 0.0;
+
     }
     public void printStudentEnrollments(String studentId){
         if(studentId==null || studentId.isEmpty()){
