@@ -1,17 +1,17 @@
 package com.wipro.cms.main;
 
-import java.util.ArrayList;
-import com.wipro.cms.entity.Student;
+import com.wipro.cms.Service.CollegeService;
 import com.wipro.cms.entity.Course;
 import com.wipro.cms.entity.Enrollment;
-import com.wipro.cms.service.CollegeService;
+import com.wipro.cms.entity.Student;
 import com.wipro.cms.util.*;
+import java.util.ArrayList;
 
 public class Main {
     public static void main(String[] args) {
         ArrayList<Student> students = new ArrayList<>();
-        students.add(new Student("S001", "Rahul Sharma", "BSc CS", 0));
-        students.add(new Student("S002", "Ananya Rao", "BCom General", 0));
+        students.add(new Student(0, "Rahul Sharma", "BSc CS", "S001"));
+        students.add(new Student(0, "Ananya Rao", "BCom General", "S002"));
         ArrayList<Course> courses = new ArrayList<>();
         courses.add(new Course("CO101", "Data Structures", 4, 2, 0));
         courses.add(new Course("CO102", "Operating Systems", 3, 1, 0));

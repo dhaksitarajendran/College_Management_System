@@ -1,6 +1,6 @@
 package com.wipro.cms.util;
 
-public class CourseFullException {
+public class CourseFullException extends Exception {
 
     @Override
     public String toString() {

@@ -1,6 +1,6 @@
 package com.wipro.cms.util;
 
-public class EnrollmentException {
+public class EnrollmentException extends Exception {
 
     @Override
     public String toString() {
